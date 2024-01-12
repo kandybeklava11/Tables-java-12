@@ -1,0 +1,519 @@
+postgres=# CREATE TABLE suppliers (
+postgres(#     id serial PRIMARY KEY,
+postgres(#     name VARCHAR(50),
+postgres(#     location VARCHAR(50)
+postgres(# );
+CREATE TABLE
+
+postgres=# INSERT INTO suppliers (name, location)
+postgres-# VALUES ('Supplier 1', 'Location 1'),
+postgres-#        ('Supplier 2', 'Location 2');
+INSERT 0 2
+
+
+$ psql -U your_username -d postgres
+psql (version)
+Type "help" for help.
+
+postgres=# CREATE TABLE table1 (
+postgres(#     id serial PRIMARY KEY,
+postgres(#     name VARCHAR(50),
+postgres(#     value INT
+postgres(# );
+CREATE TABLE
+postgres=# INSERT INTO table1 (name, value)
+postgres-# VALUES ('Entry 1', 10),
+postgres-#        ('Entry 2', 20);
+INSERT 0 2
+
+$ psql -U your_username -d postgres
+psql (version)
+Type "help" for help.
+
+postgres=# CREATE TABLE table8 (
+postgres(#     id serial PRIMARY KEY,
+postgres(#     name VARCHAR(50),
+postgres(#     value INT
+postgres(# );
+CREATE TABLE
+postgres=# INSERT INTO table8 (name, value)
+postgres-# VALUES ('Product X', 75),
+postgres-#        ('Product Y', 90);
+INSERT 0 2
+
+
+
+Server [localhost]:
+Database [postgres]:
+Port [5432]:
+Username [postgres]: postgres
+Пароль пользователя postgres:
+psql (16.0)
+ПРЕДУПРЕЖДЕНИЕ: Кодовая страница консоли (866) отличается от основной
+                страницы Windows (1251).
+                8-битовые (русские) символы могут отображаться некорректно.
+                Подробнее об этом смотрите документацию psql, раздел
+                "Notes for Windows users".
+Введите "help", чтобы получить справку.
+
+postgres=# CREATE TABLE table8 (
+postgres(# id serial PRIMARY KEY,
+postgres(# name VARCHAR(50),
+postgres(#  value INT
+postgres(# );
+CREATE TABLE
+postgres=# INSERT INTO table8 (name, value)
+postgres-# VALUES ('Product X', 75),
+postgres-# ('Product Y', 90);
+INSERT 0 2
+postgres=# select * from table8
+postgres-# postgres=# select * from table8
+postgres-# postgres-#
+postgres-# select * from table8;
+ОШИБКА:  ошибка синтаксиса (примерное положение: "=#")
+СТРОКА 2: postgres=# select * from table8
+                  ^
+postgres=# select * from table8;
+ id |   name    | value
+----+-----------+-------
+  1 | Product X |    75
+  2 | Product Y |    90
+(2 ёЄЁюъш)
+
+postgres=# create table krasava(
+postgres(# id serial primary key,
+postgres(# name varchar(50),
+postgres(# email varchar(50) unique not null,
+postgres(# age int,
+postgres(# dop_table integer references table8(id)
+postgres(# );
+CREATE TABLE
+postgres=# select * from krasava;
+ id | name | email | age | dop_table
+----+------+-------+-----+-----------
+(0 ёЄЁюъ)
+
+
+postgres=#
+
+
+
+
+
+
+
+
+
+-- Table 1: bikes
+CREATE TABLE bikes (
+    id serial primary key,
+    brand varchar(50),
+    model varchar(225),
+    age int
+);
+
+INSERT INTO bikes (brand, model, age)
+VALUES
+    ('Honda', 'CBR', 2),
+    ('Yamaha', 'YZF', 1),
+    ('Kawasaki', 'Ninja', 3);
+
+-- Table 2: laptops
+CREATE TABLE laptops (
+    id serial primary key,
+    brand varchar(50),
+    model varchar(225),
+    year int
+);
+
+INSERT INTO laptops (brand, model, year)
+VALUES
+    ('Apple', 'MacBook Pro', 2021),
+    ('Dell', 'XPS 13', 2020),
+    ('HP', 'Envy', 2019);
+
+-- Table 3: books
+CREATE TABLE books (
+    id serial primary key,
+    title varchar(100),
+    author varchar(100),
+    year_published int
+);
+
+INSERT INTO books (title, author, year_published)
+VALUES
+    ('To Kill a Mockingbird', 'Harper Lee', 1960),
+    ('1984', 'George Orwell', 1949),
+    ('Pride and Prejudice', 'Jane Austen', 1813);
+
+-- Table 4: smartphones
+CREATE TABLE smartphones (
+    id serial primary key,
+    brand varchar(50),
+    model varchar(225),
+    release_year int
+);
+
+INSERT INTO smartphones (brand, model, release_year)
+VALUES
+    ('Samsung', 'Galaxy S21', 2021),
+    ('Apple', 'iPhone 13', 2021),
+    ('Google', 'Pixel 6', 2021);
+
+-- Table 5: movies
+CREATE TABLE movies (
+    id serial primary key,
+    title varchar(100),
+    director varchar(100),
+    release_year int
+);
+
+INSERT INTO movies (title, director, release_year)
+VALUES
+    ('The Shawshank Redemption', 'Frank Darabont', 1994),
+    ('The Godfather', 'Francis Ford Coppola', 1972),
+    ('Pulp Fiction', 'Quentin Tarantino', 1994);
+
+-- Table 6: products
+CREATE TABLE products (
+    id serial primary key,
+    name varchar(100),
+    price decimal(10, 2),
+    quantity int
+);
+
+INSERT INTO products (name, price, quantity)
+VALUES
+    ('T-shirt', 19.99, 100),
+    ('Shoes', 49.99, 50),
+    ('Watch', 99.99, 20);
+
+-- Table 7: countries
+CREATE TABLE countries (
+    id serial primary key,
+    name varchar(100),
+    capital varchar(100),
+    population bigint
+);
+
+INSERT INTO countries (name, capital, population)
+VALUES
+    ('United States', 'Washington, D.C.', 331000000),
+    ('United Kingdom', 'London', 66440000),
+    ('France', 'Paris', 67060000);
+
+-- Table 8: restaurants
+CREATE TABLE restaurants (
+    id serial primary key,
+    name varchar(100),
+    cuisine varchar(100),
+    rating decimal(3, 2)
+);
+
+INSERT INTO restaurants (name, cuisine, rating)
+VALUES
+    ('Italiano', 'Italian', 4.5),
+    ('Sushi Palace', 'Japanese', 4.2),
+    ('Casa Mexicana', 'Mexican', 4.0);
+
+
+
+    первые 10
+
+    React
+
+    Reply
+
+    5:31
+    -- Table 9: orders
+    CREATE TABLE orders (
+        id serial primary key,
+        order_number varchar(20),
+        customer_name varchar(100),
+        total_amount decimal(10, 2)
+    );
+    INSERT INTO orders (order_number, customer_name, total_amount)
+    VALUES
+        ('ORD001', 'John Smith', 100.50),
+        ('ORD002', 'Emma Johnson', 75.20),
+        ('ORD003', 'Michael Brown', 150.00);
+    -- Table 10: employees
+    CREATE TABLE employees (
+        id serial primary key,
+        employee_number varchar(20),
+        first_name varchar(50),
+        last_name varchar(50),
+        department varchar(100)
+    );
+    INSERT INTO employees (employee_number, first_name, last_name, department)
+    VALUES
+        ('EMP001', 'John', 'Doe', 'Sales'),
+        ('EMP002', 'Jane', 'Smith', 'Marketing'),
+        ('EMP003', 'Michael', 'Johnson', 'Finance');
+    -- Table 11: courses
+    CREATE TABLE courses (
+        id serial primary key,
+        course_code varchar(20),
+        course_name varchar(100),
+        instructor varchar(100)
+    );
+    INSERT INTO courses (course_code, course_name, instructor)
+    VALUES
+        ('CS101', 'Introduction to Computer Science', 'Dr. Smith'),
+        ('ENG201', 'Advanced English Literature', 'Prof. Johnson'),
+        ('MATH301', 'Calculus III', 'Dr. Williams');
+    -- Table 12: products_inventory
+    CREATE TABLE products_inventory (
+        id serial primary key,
+        product_code varchar(20),
+        product_name varchar(100),
+        quantity_in_stock int
+    );
+    INSERT INTO products_inventory (product_code, product_name, quantity_in_stock)
+    VALUES
+        ('P001', 'T-shirt', 50),
+        ('P002', 'Jeans', 30),
+        ('P003', 'Shoes', 20);
+    -- Table 13: customers
+    CREATE TABLE customers (
+        id serial primary key,
+        customer_id varchar(20),
+        name varchar(100),
+        email varchar(100)
+    );
+    INSERT INTO customers (customer_id, name, email)
+    VALUES
+        ('C001', 'Alice Johnson', 'alice@example.com'),
+        ('C002', 'Bob Smith', 'bob@example.com'),
+        ('C003', 'Charlie Brown', 'charlie@example.com');
+    -- Table 14: projects
+    CREATE TABLE projects (
+        id serial primary key,
+        project_id varchar(20),
+        name varchar(100),
+        start_date date,
+        end_date date
+    );
+    INSERT INTO projects (project_id, name, start_date, end_date)
+    VALUES
+        ('PR001', 'Website Redesign', '2022-01-01', '2022-03-31'),
+        ('PR002', 'Product Launch', '2022-02-15', '2022-05-31'),
+        ('PR003', 'Marketing Campaign', '2022-03-01', '2022-04-30');
+    -- Table 15: suppliers
+    CREATE TABLE suppliers (
+        id serial primary key,
+        supplier_id varchar(20),
+        name varchar(100),
+        contact_person varchar(100),
+        phone varchar(20)
+    );
+    INSERT INTO suppliers (supplier_id, name, contact_person, phone)
+    VALUES
+        ('S001', 'ABC Company', 'John Doe', '123-456-7890'),
+        ('S002', 'XYZ Corporation', 'Jane Smith', '987-654-3210'),
+        ('S003', '123 Enterprises', 'Michael Johnson', '555-555-5555');
+    -- Table 16: flights
+    CREATE TABLE flights (
+        id serial primary key,
+        flight_number varchar(20),
+        airline varchar(100),
+        origin varchar(100),
+        destination varchar(100),
+        departure_time timestamp,
+        arrival_time timestamp
+    );
+    INSERT INTO flights (flight_number, airline, origin, destination, departure_time, arrival_time)
+    VALUES
+        ('FL001', 'Airline A', 'New York', 'London', '2022-01-01 10:00:00', '2022-01-01 17:00:00'),
+        ('FL002', 'Airline B', 'Los Angeles', 'Tokyo', '2022-02-15 12:00:00', '2022-02-16 15:00:00'),
+        ('FL003', 'Airline C', 'Paris', 'Sydney', '2022-03-01 16:00:00', '2022-03-02 09:00:00');
+    -- Table 17: hospitals
+    CREATE TABLE hospitals (
+        id serial primary key,
+        hospital_id varchar(20),
+        name varchar(100),
+        location varchar(100),
+        capacity int
+    );
+    INSERT INTO hospitals (hospital_idApologies for the incomplete response. Here are the remaining tables:
+    ```sql
+    -- Table 17: hospitals
+    CREATE TABLE hospitals (
+        id serial primary key,
+        hospital_id varchar(20),
+        name varchar(100),
+        location varchar(100),
+        capacity int
+    );
+    INSERT INTO hospitals (hospital_id, name, location, capacity)
+    VALUES
+        ('H001', 'General Hospital', 'City A', 500),
+        ('H002', 'Community Medical Center', 'City B', 300),
+        ('H003', 'Regional Hospital', 'City C', 800);
+    -- Table 18: universities
+    CREATE TABLE universities (
+        id serial primary key,
+        university_id varchar(20),
+        name varchar(100),
+        location varchar(100),
+        established_year int
+    );
+    INSERT INTO universities (university_id, name, location, established_year)
+    VALUES
+        ('U001', 'University of ABC', 'City X', 1950),
+        ('U002', 'XYZ University', 'City Y', 1980),
+        ('U003', 'City Z University', 'City Z', 2005);
+    -- Table 19: music_albums
+    CREATE TABLE music_albums (
+        id serial primary key,
+        album_id varchar(20),
+        title varchar(100),
+        artist varchar(100),
+        release_year int
+    );
+    INSERT INTO music_albums (album_id, title, artist, release_year)
+    VALUES
+        ('A001', 'Greatest Hits', 'Artist A', 2000),
+        ('A002', 'Album B', 'Artist B', 2010),
+        ('A003', 'New Release', 'Artist C', 2020);
+    -- Table 20: events
+    CREATE TABLE events (
+        id serial primary key,
+        event_id varchar(20),
+        name varchar(100),
+        location varchar(100),
+        start_date date,
+        end_date date
+    );
+    INSERT INTO events (event_id, name, location, start_date, end_date)
+    VALUES
+        ('E001', 'Conference A', 'City X', '2022-01-01', '2022-01-03'),
+        ('E002', 'Trade Show B', 'City Y', '2022-02-15', '2022-02-17'),
+        ('E003', 'Music Festival', 'City Z', '2022-03-01', '2022-03-03');
+    5:31
+    вторые 10
+    5:35
+    CREATE TABLE books (
+        id serial primary key,
+        title varchar(100),
+        author varchar(100),
+        publication_year int
+    );
+    INSERT INTO books (title, author, publication_year)
+    VALUES
+        ('Book A', 'Author A', 2000),
+        ('Book B', 'Author B', 2010),
+        ('Book C', 'Author C', 2020);
+    5:35
+    CREATE TABLE movies (
+        id serial primary key,
+        title varchar(100),
+        director varchar(100),
+        release_year int
+    );
+    INSERT INTO movies (title, director, release_year)
+    VALUES
+        ('Movie A', 'Director A', 2005),
+        ('Movie B', 'Director B', 2015),
+        ('Movie C', 'Director C', 2021);
+    5:35
+    CREATE TABLE employees (
+        id serial primary key,
+        first_name varchar(50),
+        last_name varchar(50),
+        department varchar(100),
+        salary decimal(10, 2)
+    );
+    INSERT INTO employees (first_name, last_name, department, salary)
+    VALUES
+        ('John', 'Doe', 'Sales', 50000.00),
+        ('Jane', 'Smith', 'Marketing', 60000.00),
+        ('Michael', 'Johnson', 'Finance', 70000.00);
+    5:35
+    CREATE TABLE customers (
+        id serial primary key,
+        name varchar(100),
+        email varchar(100),
+        phone varchar(20)
+    );
+    INSERT INTO customers (name, email, phone)
+    VALUES
+        ('Customer A', 'customerA@example.com', '123-456-7890'),
+        ('Customer B', 'customerB@example.com', '987-654-3210'),
+        ('Customer C', 'customerC@example.com', '555-555-5555');
+    5:35
+    CREATE TABLE orders (
+        id serial primary key,
+        order_number varchar(20),
+        customer_id int,
+        order_date date
+    );
+    INSERT INTO orders (order_number, customer_id, order_date)
+    VALUES
+        ('ORD001', 1, '2022-01-01'),
+        ('ORD002', 2, '2022-02-15'),
+        ('ORD003', 3, '2022-03-01');
+    5:35
+    CREATE TABLE products (
+        id serial primary key,
+        name varchar(100),
+        price decimal(10, 2),
+        quantity_in_stock int
+    );
+    INSERT INTO products (name, price, quantity_in_stock)
+    VALUES
+        ('Product A', 10.99, 50),
+        ('Product B', 20.99, 30),
+        ('Product C', 15.99, 20);
+    5:35
+    CREATE TABLE suppliers (
+        id serial primary key,
+        name varchar(100),
+        contact_person varchar(100),
+        phone varchar(20),
+        email varchar(100)
+    );
+    INSERT INTO suppliers (name, contact_person, phone, email)
+    VALUES
+        ('Supplier A', 'Contact A', '123-456-7890', 'supplierA@example.com'),
+        ('Supplier B', 'Contact B', '987-654-3210', 'supplierB@example.com'),
+        ('Supplier C', 'Contact C', '555-555-5555', 'supplierC@example.com');
+    5:35
+    CREATE TABLE countries (
+        id serial primary key,
+        name varchar(100),
+        capital varchar(100),
+        population bigint
+    );
+    INSERT INTO countries (name, capital, population)
+    VALUES
+        ('Country A', 'Capital A', 10000000),
+        ('Country B', 'Capital B', 20000000),
+        ('Country C', 'Capital C', 30000000);
+    5:36
+    CREATE TABLE students (
+        id serial primary key,
+        first_name varchar(50),
+        last_name varchar(50),
+        age int,
+        grade varchar(10)
+    );
+    INSERT INTO students (first_name, last_name, age, grade)
+    VALUES
+        ('John', 'Doe', 15, '9th'),
+        ('Jane', 'Smith', 16, '10th'),
+        ('Michael', 'Johnson', 17, '11th');
+    5:36
+    Here are 10 more tables with their respective SQL statements for table creation and sample data insertion:
+    1. Table: products
+    ```sql
+    CREATE TABLE products (
+        id INT,
+        name VARCHAR(50),
+        price DECIMAL(10, 2)
+    );
+    INSERT INTO products (id, name, price)
+    VALUES
+        (1, 'Product A', 10.99),
+        (2, 'Product B', 20.99),
+        (3, 'Product C', 15.99)
